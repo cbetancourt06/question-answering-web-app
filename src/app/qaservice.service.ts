@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
-const baseUrl = 'https://localhost:7149/api/tasks'
+const baseUrl = 'https://localhost:7172/api/questions'
 
 export interface Task {
   id: number,
@@ -13,6 +13,21 @@ export interface Task {
   description: string;
   dueDate: Date;
   status: number;
+}
+export interface Question {
+  id: number,
+  title: string,
+  body: string,
+  tags: string[],
+  isVoted: boolean
+}
+
+export interface Answers {
+  id: number,  
+  body: string,
+  questionId: number,
+  tags: string[],
+  isVoted: boolean
 }
 
 @Injectable({
